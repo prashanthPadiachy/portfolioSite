@@ -46,17 +46,44 @@
     geometry.setAttribute('aSize',    new THREE.BufferAttribute(sizes, 1));
     geometry.setAttribute('aAlpha',   new THREE.BufferAttribute(alphas, 1));
 
-    const material = new THREE.PointsMaterial({//REPLACE LATER
-     color: 0x333333,
-     size: 0.09,
-     transparent: true,
-     opacity: 0.5
-    });
+    // const material = new THREE.PointsMaterial({//REPLACE LATER
+    //  color: 0x333333,
+    //  size: 0.09,
+    //  transparent: true,
+    //  opacity: 0.5
+    // });
 
-    const particles = new THREE.Points(
-    geometry,
-    material
-    );
+    //SHADER
+    const mat = new THREE.ShaderMaterial({transparent: true, depthWrite: false, blending: THREE.NormalBlending, 
+        uniforms:{uPixelRatio: {value: renderer.getPixelRatio()}, uColor: {value: new THREE.Vector3(...COLOR)}
+    },
+    vertexShader: `
+        attribute float aSize;
+        attribute float aAlpha;
+        uniform float uPixelRatio;
+        varying float vAlpha;
+        void main() {
+            vAlpha = aAlpha;
+            vec4 mv = modelViewMatrix * vec4(position, 1.0);
+            gl_PointSize = aSize*uPixelRatio*(40.0/-mv.z);
+            gl_Position = projectionMatrix*mv;
+        }`,
+    fragmentShader: `
+        uniform vec3 uColor;
+        varying float vAlpha;
+        void main() {
+            float d = length(gl_PointCoord - 0.5);
+            if (d > 0.5) discard;   //rounding
+            float glow = 1.0 - smoothstep(0.1, 0.5, d);//glow blur
+            float soft = pow(glow, 2.5);
+            float a = soft*(vAlpha*2.5 + 0.1);
+            gl_FragColor = vec4(uColor, a);
+
+        }`
+
+    }, );
+
+    const particles = new THREE.Points(geometry,mat);
 
     scene.add(particles);
 
