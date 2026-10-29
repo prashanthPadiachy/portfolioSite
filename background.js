@@ -48,12 +48,23 @@
 
     scene.add(particles);
 
+    const mouse = {x:0, y:0, tx:0 , ty:0};
+
+    window.addEventListener('mousemove', e => {
+        mouse.tx = (e.clientX/window.innerWidth-0.5)*2;
+        mouse.ty = (e.clientY/window.innerHeight - 0,5)*2;
+    } );
+
     //renderer.render(scene, camera);
     const clock = new THREE.Clock();
 
     function animate(){
         requestAnimationFrame(animate);
         const t = clock.getElapsedTime();
+
+        //lerp mouse follow
+        mouse.x += (mouse.tx - mouse.x)*0.05;
+        mouse.y += (mouse.ty - mouse.y)*0.05;
 
         for(let i = 0;i<COUNT;i++){
             const j = i*3;
@@ -64,6 +75,10 @@
             }
 
             geometry.attributes.position.needsUpdate= true;
+
+            camera.position.x = mouse.x *0.5;
+            camera.position.y = mouse.y*0.3;
+            camera.lookAt(0,0,0);
 
             renderer.render(scene,camera);
         
