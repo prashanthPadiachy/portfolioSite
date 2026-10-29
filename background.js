@@ -34,7 +34,7 @@
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));//turn positions into geo
 
-    const material = new THREE.PointsMaterial({
+    const material = new THREE.PointsMaterial({//REPLACE LATER
      color: 0x333333,
      size: 0.09,
      transparent: true,
@@ -48,5 +48,25 @@
 
     scene.add(particles);
 
-    renderer.render(scene, camera);
+    //renderer.render(scene, camera);
+    const clock = new THREE.Clock();
+
+    function animate(){
+        requestAnimationFrame(animate);
+        const t = clock.getElapsedTime();
+
+        for(let i = 0;i<COUNT;i++){
+            const j = i*3;
+            const speed = speeds[i];
+
+            positions[j]= basePositions[j]+Math.sin(t*speed+i)*2;
+            positions[j+1] = basePositions[j+1]+Math.cos(t*speed+i)*2;
+            }
+
+            geometry.attributes.position.needsUpdate= true;
+
+            renderer.render(scene,camera);
+        
+    }
+    animate();
 })();
