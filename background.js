@@ -51,8 +51,8 @@
     const mouse = {x:0, y:0, tx:0 , ty:0};
 
     window.addEventListener('mousemove', e => {
-        mouse.tx = (e.clientX/window.innerWidth-0.5)*2;
-        mouse.ty = (e.clientY/window.innerHeight - 0,5)*2;
+    mouse.tx =  (e.clientX / window.innerWidth  - 0.5) * 2;
+    mouse.ty = -(e.clientY / window.innerHeight - 0.5) * 2;
     } );
 
     //renderer.render(scene, camera);
@@ -70,8 +70,9 @@
             const j = i*3;
             const speed = speeds[i];
 
-            positions[j]= basePositions[j]+Math.sin(t*speed+i)*2;
-            positions[j+1] = basePositions[j+1]+Math.cos(t*speed+i)*2;
+            positions[j]= basePositions[j]+Math.sin(t*speed+i)*2 + mouse.x*1.2*speed;
+            positions[j+1] = basePositions[j+1]+Math.cos(t*speed+i*0.5)*2 + mouse.y*0.8*speed;
+            positions[j+2]= basePositions[j+2]+Math.sin(t*speed*0.5+i*0.3)*1.5;
             }
 
             geometry.attributes.position.needsUpdate= true;
