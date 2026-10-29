@@ -3,8 +3,10 @@
 
     const canvas = document.getElementById('bg');
 
-    const renderer = new THREE.WebGLRenderer({canvas:canvas, alpha: true});
+    const renderer = new THREE.WebGLRenderer({canvas:canvas, alpha: true, antialias: false});
     renderer.setSize(window.innerWidth,window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0); // transparent, so the CSS background shows through
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 200);
@@ -12,10 +14,14 @@
 
     const COUNT = 1000;
     const SPREAD = {x:40, y:25, z:30};
+    const COLOR = [0.15, 0.15, 0.17]
 
     const positions = new Float32Array(COUNT*3);
     const basePositions = new Float32Array(COUNT*3);
     const speeds = new Float32Array(COUNT);
+
+    const sizes = new Float32Array(COUNT);
+    const alphas = new Float32Array(COUNT);
 
     //distribute particles
     for(let i = 0; i<COUNT; i++)
@@ -28,11 +34,17 @@
 
             speeds[i]= 0.05+Math.random()*0.2;
 
+            sizes[i]  = 1 + Math.random() * 3;
+            alphas[i] = 0.05 + Math.random() * 0.25;
+
+
         }
     positions.set(basePositions);
 
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));//turn positions into geo
+    geometry.setAttribute('aSize',    new THREE.BufferAttribute(sizes, 1));
+    geometry.setAttribute('aAlpha',   new THREE.BufferAttribute(alphas, 1));
 
     const material = new THREE.PointsMaterial({//REPLACE LATER
      color: 0x333333,
@@ -71,7 +83,7 @@
             const speed = speeds[i];
 
             positions[j]= basePositions[j]+Math.sin(t*speed+i)*2 + mouse.x*1.2*speed;
-            positions[j+1] = basePositions[j+1]+Math.cos(t*speed+i*0.5)*2 + mouse.y*0.8*speed;
+            positions[j+1] = basePositions[j+1]+Math.cos(t*speed+i*0.5)*2 + mouse.y*0.8 *speed;
             positions[j+2]= basePositions[j+2]+Math.sin(t*speed*0.5+i*0.3)*1.5;
             }
 
