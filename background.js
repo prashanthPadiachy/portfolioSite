@@ -12,7 +12,7 @@
     const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 200);
     camera.position.z= 18;
 
-    const COUNT = 1000;
+    const COUNT = 700;
     const SPREAD = {x:40, y:25, z:30};
     const COLOR = [0.15, 0.15, 0.17]
 
@@ -34,7 +34,7 @@
 
             speeds[i]= 0.05+Math.random()*0.2;
 
-            sizes[i]  = 1 + Math.random() * 3;
+            sizes[i]  = 1 + Math.random() * 5;
             alphas[i] = 0.05 + Math.random() * 0.25;
 
 
