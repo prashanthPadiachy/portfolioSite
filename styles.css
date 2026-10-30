@@ -1,6 +1,29 @@
 
+@font-face {
+  font-family: 'sackersGothicMed';
+  src: url('Assets/Fonts/Sackers\ Gothic\ Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 
-html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: fantasy, sans-serif; }
+}
+@font-face {
+  font-family: 'sackersGothicHeavy';
+  src: url('Assets/Fonts/Sackers\ Gothic\ Heavy.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+
+}
+@font-face {
+  font-family: 'sackersGothicLight';
+  src: url('Assets/Fonts/Sackers\ Gothic\ Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+
+}
+html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: 'sackersGothicMed', sans-serif; }
 
 
   #bg {
