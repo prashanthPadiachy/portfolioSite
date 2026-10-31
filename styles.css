@@ -52,3 +52,55 @@ html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: 'sacke
     #home { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0; }
      h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0 0 .5rem; }
   p { color: #52525b; line-height: 1.6; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); 
+  gap: 24px;
+}
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e4e4e7;
+  border-radius: 14px;
+  overflow: hidden;                 /* clips the image to the rounded corners */
+  padding: 0;                       
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #c4c4cc;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card-media {
+  aspect-ratio: 16 / 9;
+  background: #f4f4f5;
+  overflow: hidden;
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                /* fill the box and crop the excess */
+  display: block;
+  transition: transform 0.4s;
+}
+.card:hover .card-media img { transform: scale(1.04); }  /* slight zoom on hover */
+
+.card-body { padding: 20px 24px 24px; }
+.card-body h3 { margin: 0 0 6px; font-size: 1.1rem; }
+.card-desc { margin: 0 0 16px; }
+
+/* Tag chips */
+.chips {
+  list-style: none; margin: 0 0 16px; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.chips li {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border: 1px solid #e4e4e7;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.card-highlight { margin: 0; font-size: 0.9rem; color: #71717a; }
