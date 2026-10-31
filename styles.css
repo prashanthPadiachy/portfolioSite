@@ -1,6 +1,29 @@
 
+@font-face {
+  font-family: 'sackersGothicMed';
+  src: url('Assets/Fonts/Sackers\ Gothic\ Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 
-html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: fantasy, sans-serif; }
+}
+@font-face {
+  font-family: 'sackersGothicHeavy';
+  src: url('Assets/Fonts/Sackers\ Gothic\ Heavy.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+
+}
+@font-face {
+  font-family: 'sackersGothicLight';
+  src: url('Assets/Fonts/Sackers\ Gothic\ Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+
+}
+html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: 'sackersGothicMed', sans-serif; }
 
 
   #bg {
@@ -11,6 +34,18 @@ html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: fantas
     z-index: 0;
     pointer-events: none;
   }
+
+  nav{
+    position: fixed; top:0;left: 0; right: 0; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 24px;
+    background: rgba(29, 29, 31, 0.664);
+    backdrop-filter: saturate(180%) blur(1px);       
+    border-bottom: 5px solid rgba(247, 242, 242, 0.651);
+  }
+  nav a {color: #efeff3; text-decoration: none; margin-left: 20px; }
+  nav .logo { font-weight: 700; margin-left: 0; }
+  html{scroll-behavior: smooth;}
 
    main { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 0 16px; }
    section { padding: 80px 0; }
