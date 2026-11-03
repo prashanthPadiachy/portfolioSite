@@ -26,6 +26,15 @@
 
     <section id= "projects">
         <h2>Selected Projects </h2>
+
+        <div class = "filters">
+            <button class = "active" data-filter = "All">All</button>
+            <button data-filter="Unity">Unity</button>
+            <button data-filter="C#">C#</button>
+            <button data-filter="Python">Python</button>
+            <button data-filter="Java">Java</button>
+        </div>
+
         <div class = "grid">
 
             <article class = "card" data-tags=" r1, r2, r3">
@@ -62,7 +71,7 @@
 
             </article>
 
-            <article class = "card" data-tags=" r1, r2, r3">
+            <article class = "card" data-tags="Unity, r2, r3">
                  <div class="card-media">
                      <img src="images/a.png" alt="project image">
                 </div>
@@ -96,6 +105,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 <script src="background.js"></script>
+<script src="filters.js"></script>
 
 </body>
 
