@@ -118,3 +118,17 @@ html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: 'sacke
 }
 .filters button:hover { border-color: #a1a1aa; }
 .filters button.active { background: #1c1c1e; color: #fff; border-color: #1c1c1e; }
+
+.show-more-wrap{ display: flex; justify-content: center; margin-top: 24px;}
+
+#show-more {
+  font: inherit; font-size: 0.9rem;
+  padding: 10px 20px;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  background: #fff;
+  color: #1c1c1e;
+  cursor: pointer;
+}
+#show-more:hover { border-color: #a1a1aa; }
+#show-more[hidden] { display: none; }
