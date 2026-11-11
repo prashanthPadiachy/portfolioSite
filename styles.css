@@ -150,6 +150,9 @@ ion-icon {
     font-size: 32px;
     color: #1c1c1e;
 }
+ion-icon:hover {
+    transform: scale(1.15);
+}
 
 #contact{font-family: 'Courier New', Courier, monospace;}
 
