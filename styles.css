@@ -89,7 +89,7 @@ html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: 'sacke
 
 .card-body { padding: 20px 24px 24px; }
 .card-body h3 { margin: 0 0 6px; font-size: 1.1rem; }
-.card-desc { margin: 0 0 16px; }
+.card-desc { margin: 0 0 16px; font-size: small;font-family: 'sackersGothicLight', Courier, monospace; }
 
 /* Tag chips */
 .chips {
@@ -104,7 +104,7 @@ html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: 'sacke
   background: #fafafa;
 }
 
-.card-highlight { margin: 0; font-size: 0.9rem; color: #71717a; }
+.card-highlight { margin: 0; font-size: 0.9rem; color: #48484d; font-family: sac, Courier, monospace ;}
 
 .filters{display: flex; flex-wrap: wrap; gap: 8px;margin-bottom: 24px;}
 .filters button {
@@ -138,9 +138,18 @@ clip-path: inset(0 -100vmax); padding: 80px 0;}
 
 .about-photo{display: block;width: 210px;height: 210px; margin: 0 auto 30px; border-radius: 50%; object-fit: cover; border: 3px solid #1c1c1e;}
 .about-columns{max-width:900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr;}
-.about-text{padding-right: 55px; border-right: 1px solid #3a3a3c;}
+.about-text{padding-right: 55px; border-right: 1px solid #3a3a3c; }
+.about-text p{font-family: 'Courier New', Courier, monospace ;}
 .about-skills{padding-left: 32px}
 .skills-grid{list-style: none;padding:0;margin:0; display:grid; grid-template-columns:repeat(3,1fr); row-gap: 22px; }
 .skills-grid img {width: 38px; height: 38px; object-fit: contain; transition: transform 0.2s;}
 .skills-grid li{display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.8rem; color:#52525b; text-align: center;}
 .skills-grid li:hover img { transform: scale(1.15); }
+
+ion-icon {
+    font-size: 32px;
+    color: #1c1c1e;
+}
+
+#contact{font-family: 'Courier New', Courier, monospace;}
+
