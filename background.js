@@ -12,7 +12,7 @@
     const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 200);
     camera.position.z= 18;
 
-    const COUNT = 700;
+    const COUNT = 300;
     const SPREAD = {x:40, y:25, z:30};
     const COLOR = [0.15, 0.15, 0.17]
 
@@ -116,8 +116,8 @@
 
             geometry.attributes.position.needsUpdate= true;
 
-            camera.position.x = mouse.x *0.5;
-            camera.position.y = mouse.y*0.3;
+            camera.position.x = mouse.x *0.8;
+            camera.position.y = mouse.y*0.6;
             camera.lookAt(0,0,0);
 
             renderer.render(scene,camera);
