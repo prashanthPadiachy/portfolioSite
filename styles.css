@@ -92,11 +92,7 @@ html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: 'sacke
 }
 .card:hover .card-media img { transform: scale(1.04); }  /* slight zoom on hover */
 
-@media (max-width: 600px) {
-    h1 {
-        font-size: 24px;
-    }
-}
+
 
 .card-body { padding: 20px 24px 24px; }
 .card-body h3 { margin: 0 0 6px; font-size: 1.1rem; }
@@ -148,7 +144,7 @@ html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: 'sacke
 clip-path: inset(0 -100vmax); padding: 80px 0;}
 
 .about-photo{display: block;width: 210px;height: 210px; margin: 0 auto 30px; border-radius: 50%; object-fit: cover; border: 3px solid #1c1c1e;}
-.about-columns{max-width:900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr;}
+.about-columns{max-width:900px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);}
 .about-text{padding-right: 55px; border-right: 1px solid #3a3a3c; }
 .about-text p{font-family: 'Courier New', Courier, monospace ;}
 .about-skills{padding-left: 32px}
@@ -166,4 +162,28 @@ ion-icon:hover {
 }
 
 #contact{font-family: 'Courier New', Courier, monospace;}
+
+@media (max-width: 760px) {
+
+    .about-columns {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .about-text {
+        border-right: none;
+        border-bottom: 1px solid #3a3a3c;
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    .about-skills {
+        padding-left: 0;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 22px 12px;
+    }
+}
 
