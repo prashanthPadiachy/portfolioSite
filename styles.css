@@ -1,4 +1,6 @@
-
+:root {
+    color-scheme: only light;
+}
 @font-face {
   font-family: 'sackersGothicMed';
   src: url('Assets/Fonts/Sackers\ Gothic\ Medium.woff2') format('woff2');
@@ -91,8 +93,6 @@ html, body { margin: 0; background: #feffff; color: #1c1c1e; font-family: 'sacke
   transition: transform 0.4s;
 }
 .card:hover .card-media img { transform: scale(1.04); }  /* slight zoom on hover */
-
-
 
 .card-body { padding: 20px 24px 24px; }
 .card-body h3 { margin: 0 0 6px; font-size: 1.1rem; }
